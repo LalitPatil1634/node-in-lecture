@@ -45,7 +45,7 @@ module.exports.findAllUsers = (req, res, next) => {
 };
 
 module.exports.findUser = (req, res, next) => {
-    const { id } = req.params();
+    const { id } = req.params;
     User.findOne({ _id: id })
     .then((r) => {
         return res.json(r);

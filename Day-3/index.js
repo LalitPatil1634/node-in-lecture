@@ -2,6 +2,7 @@ const express = require("express");
 const conn = require("./config/db");
 require('dotenv').config();
 const userRouter = require("./routes/user.route")
+const blogRouter = require("./routes/blog.route")
 const app = express();
 app.listen(8080, async () => {
     await conn;
@@ -13,5 +14,6 @@ app.get("/", (req, res) => {
     res.send("Welcome")
 })
 
+app.use("/blog", blogRouter)
 app.use("/user", userRouter)
 // console.log(process.env.PORT);
